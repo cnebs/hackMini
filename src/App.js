@@ -7,7 +7,6 @@ import Lobby from './components/Lobby';
 // import Cashier from './components/Cashier';
 import Dashboard from './components/Dashboard';
 import MyMiniHacks from './components/MyMiniHacks.jsx'
-// import SubmissionPortal from './components/SubmissionPortal';
 // import PrizePayout from './components/PrizePayout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -35,7 +34,7 @@ class App extends React.Component {
 
   handleMiniHackClick(tournament) {
     const stateClickedTournament = this.state.clickedTournament;
-    stateClickedTournament.push(tournament)
+    stateClickedTournament[0] = tournament
     this.setState({clickedTournament : stateClickedTournament})
   }
 
