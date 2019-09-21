@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';

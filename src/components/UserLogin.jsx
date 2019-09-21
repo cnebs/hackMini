@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
 
 
 const UserLogin = () => {
@@ -23,9 +24,11 @@ const UserLogin = () => {
       <Form.Group controlId="formBasicCheckbox">
       <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-      <Button variant="primary" type="submit">
-      Submit
-      </Button>
+      <Link to="/Lobby">
+        <Button variant="primary" type="submit">
+        Submit
+        </Button>
+      </Link>
       </Form>
     </Container>
   );
