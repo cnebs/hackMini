@@ -2,7 +2,7 @@ const tournaments = [
   {
     name: 'wwc_hackathon',
     prize: 1000,
-    start_time: 'Sun, Sep 22 | 8:00PM',
+    start_time: 'Sun, Sep 22 @ 8:00PM',
     competitors: [
       'name1',
       'name2',
@@ -25,7 +25,7 @@ const tournaments = [
   {
     name: 'hackathon_2',
     prize: 1000,
-    start_time: 'Sun, Sep 22 | 8:00PM',
+    start_time: 'Sun, Sep 22 @ 8:00PM',
     competitors: [
       'name1',
       'name2',
@@ -44,7 +44,7 @@ const tournaments = [
   {
     name: 'hackathon_3',
     prize: 1000,
-    start_time: 'Sun, Sep 22 | 8:00PM',
+    start_time: 'Sun, Sep 22 @ 8:00PM',
     competitors: [
       'name1',
       'name2'

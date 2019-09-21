@@ -21,8 +21,8 @@ class App extends React.Component {
 
   componentDidMount() {
     const tournamentsState = this.state.tournaments;
-    for (let i of tournaments) {
-      tournamentsState.push(i)
+    for (let tourney of tournaments) {
+      tournamentsState.push(tourney)
     }
     this.setState({tournaments : tournamentsState})
   }
@@ -33,6 +33,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
+
+        {/* logo */}
         <Row>
           <Col></Col>
           <Col md="auto">
@@ -41,6 +43,8 @@ class App extends React.Component {
           </Col>
           <Col></Col>
         </Row>
+
+        {/* router */}
         <BrowserRouter>
           <Route exact path="/" component={UserLogin}/>
           <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} />}/>
@@ -49,6 +53,7 @@ class App extends React.Component {
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>
+
       </div>
     );
   }

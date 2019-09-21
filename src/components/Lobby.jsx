@@ -15,6 +15,7 @@ const Lobby = props => {
             <th>Registered</th>
             <th>Tournament</th>
             <th>Prize</th>
+            <th>Start Time</th>
             <th>Duration</th>
             <th></th>
           </tr>
@@ -26,6 +27,7 @@ const Lobby = props => {
             <td>{tourney.competitors.length}/5</td>
             <td>{tourney.name}</td>
             <td>${tourney.prize}</td>
+            <td>{tourney.start_time}</td>
             <td>24 hours</td>
             <td><Button>REGISTER</Button></td>
           </tr>
