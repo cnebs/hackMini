@@ -13,7 +13,7 @@ const Lobby = props => {
         <thead>
           <tr>
             <th>Registered</th>
-            <th>Tournament</th>
+            <th>MiniHack</th>
             <th>Prize</th>
             <th>Start Time</th>
             <th>Duration</th>
