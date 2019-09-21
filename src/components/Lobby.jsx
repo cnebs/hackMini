@@ -9,6 +9,7 @@ const Lobby = props => {
 
   const {tournaments, registeredTournaments, handleMiniHackClick, handleRegisterClick} = props;
 
+
   return (
     <Container>
     <Navibar />
@@ -34,11 +35,13 @@ const Lobby = props => {
                 <td>{tourney.start_time}</td>
                 <td>24 hours</td>
                 <td> {!registeredTournaments.includes(tourney) ? <Button onClick={() => (handleRegisterClick(i))}>REGISTER</Button> : <Button>REGISTERED</Button>}</td>
+                <td></td>
               </tr>
             )
           })}
         </tbody>
       </Table>
+      
     </Container>
   )
 }

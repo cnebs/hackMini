@@ -1,12 +1,15 @@
 import React from 'react';
 import Navibar from './Navbar.jsx'
+import Submission from './Submission.jsx'
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
 const Dashboard = props => {
 
-  const {clickedTournament} = props;
+  const {clickedTournament, registeredTournaments} = props;
+
+  const [modalShow, setModalShow] = React.useState(false);
 
   return (
    <Container>
@@ -30,11 +33,29 @@ const Dashboard = props => {
       <p>
         {clickedTournament.length ? clickedTournament[0].start_time : <></>}
       </p>
-      <br></br>
-      <Button>
+      <p>
+        {registeredTournaments.includes(clickedTournament[0]) ? 
+          <Button variant="primary" onClick={() => setModalShow(true)}>
+            Submit Final Project
+          </Button> :
+          <Button>
+            REGISTER
+          </Button>
+        }
+      </p>
+      {/* <Button>
         REGISTER
       </Button>
+      </p>
+      <p>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Submit Final Project
+      </Button>
+      </p> */}
+      
     </Jumbotron>
+
+    <Submission show={modalShow} onHide={() => setModalShow(false)}/>
   </Container>
   )
 

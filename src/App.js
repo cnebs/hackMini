@@ -73,7 +73,7 @@ class App extends React.Component {
           <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick}/>}/>
           <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>          
           {/* <Route path="/Cashier" component={Cashier}/> */}
-          <Route path="/Dashboard" render={() => <Dashboard clickedTournament={clickedTournament} />}/>
+          <Route path="/Dashboard" render={() => <Dashboard clickedTournament={clickedTournament} registeredTournaments={registeredTournaments}/>}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>
