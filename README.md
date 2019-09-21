@@ -1,0 +1,2 @@
+# hackMini
+Bringing hackathons online
