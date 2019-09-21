@@ -5,42 +5,34 @@ import Button from 'react-bootstrap/Button'
 
 const Lobby = props => {
 
-  // const {} = props;
+  const {tournaments} = props;
 
   return (
     <Container>
-      <Table striped boredered responsive hover variant="dark">
+      <Table striped boredered="true" responsive hover variant="dark">
         <thead>
           <tr>
             <th>Registered</th>
             <th>Tournament</th>
             <th>Prize</th>
+            <th>Start Time</th>
             <th>Duration</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1/5</td>
-            <td>hackathon 2</td>
-            <td>$1000</td>
+          {tournaments.map( (tourney, i) => {
+            return (
+            <tr key={i}>
+            <td>{tourney.competitors.length}/5</td>
+            <td>{tourney.name}</td>
+            <td>${tourney.prize}</td>
+            <td>{tourney.start_time}</td>
             <td>24 hours</td>
             <td><Button>REGISTER</Button></td>
           </tr>
-          <tr>
-            <td>1/5</td>
-            <td>Hackathon 3</td>
-            <td>$1500</td>
-            <td>24 hours</td>
-            <td><Button>REGISTER</Button></td>
-          </tr>
-          <tr>
-            <td>1/5</td>
-            <td>WWC_Hackathon</td>
-            <td>$150</td>
-            <td>24 hours</td>
-            <td><Button>REGISTER</Button></td>
-          </tr>
+            )
+          })}
         </tbody>
       </Table>
     </Container>
