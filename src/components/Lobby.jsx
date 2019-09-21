@@ -3,6 +3,7 @@ import Navibar from './Navbar.jsx';
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom'
 
 const Lobby = props => {
 
@@ -26,9 +27,9 @@ const Lobby = props => {
         <tbody>
           {tournaments.map( (tourney, i) => {
             return (
-              <tr href="Dashboard" key={i}>
+              <tr key={i}>
                 <td>{tourney.competitors.length}/5</td>
-                <td>{tourney.name}</td>
+                <td><Link to="/Dashboard">{tourney.name}</Link></td>
                 <td>${tourney.prize}</td>
                 <td>{tourney.start_time}</td>
                 <td>24 hours</td>
