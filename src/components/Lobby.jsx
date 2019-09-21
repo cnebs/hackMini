@@ -23,14 +23,14 @@ const Lobby = props => {
         <tbody>
           {tournaments.map( (tourney, i) => {
             return (
-            <tr key={i}>
-            <td>{tourney.competitors.length}/5</td>
-            <td>{tourney.name}</td>
-            <td>${tourney.prize}</td>
-            <td>{tourney.start_time}</td>
-            <td>24 hours</td>
-            <td><Button>REGISTER</Button></td>
-          </tr>
+              <tr href="Dashboard" key={i}>
+                <td>{tourney.competitors.length}/5</td>
+                <td>{tourney.name}</td>
+                <td>${tourney.prize}</td>
+                <td>{tourney.start_time}</td>
+                <td>24 hours</td>
+                <td><Button>REGISTER</Button></td>
+              </tr>
             )
           })}
         </tbody>

@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.png'
 import tournaments from './data/tournaments.js'
 import { BrowserRouter, Route } from 'react-router-dom';
+import Navibar from './components/Navbar.jsx'
 import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';
 // import Cashier from './components/Cashier';
@@ -10,6 +11,7 @@ import Dashboard from './components/Dashboard';
 // import PrizePayout from './components/PrizePayout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
   constructor(props) {
@@ -38,11 +40,18 @@ class App extends React.Component {
         <Row>
           <Col></Col>
           <Col md="auto">
+            <br></br>
             <img style={{textAlign: "center"}} src={logo} alt="logo" />
             <br></br>
           </Col>
           <Col></Col>
         </Row>
+
+        <br></br>
+
+        <Container>
+          <Navibar />
+        </Container>
 
         {/* router */}
         <BrowserRouter>
