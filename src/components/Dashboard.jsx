@@ -1,5 +1,6 @@
 import React from 'react';
 import DashboardLeaderboard from './Dashboard-Leaderboard';
+import Navibar from './Navbar.jsx'
 import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -15,6 +16,7 @@ const Dashboard = props => {
       < Dashboard-Leaderboard />    <Dashboard-CompetitorInfo />
     */
    <Container>
+    <Navibar />
     <Row>
       <Table>
         <thead>

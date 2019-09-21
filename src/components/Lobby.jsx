@@ -1,4 +1,5 @@
 import React from 'react';
+import Navibar from './Navbar.jsx';
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
@@ -9,6 +10,8 @@ const Lobby = props => {
 
   return (
     <Container>
+    <Navibar />
+
       <Table striped boredered="true" responsive hover variant="dark">
         <thead>
           <tr>

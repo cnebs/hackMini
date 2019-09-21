@@ -49,10 +49,6 @@ class App extends React.Component {
 
         <br></br>
 
-        <Container>
-          <Navibar />
-        </Container>
-
         {/* router */}
         <BrowserRouter>
           <Route exact path="/" component={UserLogin}/>
