@@ -2,7 +2,7 @@ const tournaments = [
   {
     name: 'WWC Diversity Hackathon 5',
     prize: 1000,
-    start_time: 'Sun, Sep 22 @ 8:00PM',
+    start_time: 'Sun, Sep 22 @ 8:00AM',
     max_competitors: 30,
     competitors: [
       'name1',
@@ -24,9 +24,9 @@ const tournaments = [
     }
   },
   {
-    name: 'hackathon 2',
-    prize: 1000,
-    start_time: 'Sun, Sep 22 @ 8:00PM',
+    name: 'DeveloperWeek Austin 2019 Hackathon',
+    prize: 20000,
+    start_time: 'Sun, Nov 6',
     max_competitors: 10,
     competitors: [
       'name1',
@@ -34,12 +34,14 @@ const tournaments = [
       'name3'
     ],
     information: {
-      description: 'This is the description for hackathon 2',
+      description: `The DeveloperWeek Austin 2019 Hackathon is one of Austin's largest hackathons.
+      Join 200+ developers building new apps, bots -- all within hours. Participants can build any app of their choice and will compete for $20,000+ in cash, products, and prizes.
+      Get all the details and the amazing hackathon challenges & prizes here.`,
       media: 'youtube link',
       requirements: [
-        'Support each other',
-        'Be creative',
-        'Have fun'
+        'Mobile or Web',
+        'Must be a feasible startup idea',
+        'Must share idaes to Accelerate.im to form a team'
       ]
     }
   },

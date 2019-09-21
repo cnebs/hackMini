@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 const Dashboard = props => {
 
-  const {tournaments, clickedTournament} = props;
+  const {clickedTournament} = props;
 
   return (
    <Container>
