@@ -8,19 +8,30 @@ import Dashboard from './components/Dashboard';
 // import SubmissionPortal from './components/SubmissionPortal';
 // import PrizePayout from './components/PrizePayout';
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Route exact path="/" component={UserLogin}/>
-        <Route path="/Lobby" component={Lobby}/>
-        {/* <Route path="/Cashier" component={Cashier}/> */}
-        <Route path="/Dashboard" component={Dashboard}/>
-        {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
-        {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
-      </BrowserRouter>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super()
+    this.state = {
+      
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>MiniHacks</h1>
+        <br></br>
+        <BrowserRouter>
+          <Route exact path="/" component={UserLogin}/>
+          <Route path="/Lobby" component={Lobby}/>
+          {/* <Route path="/Cashier" component={Cashier}/> */}
+          <Route path="/Dashboard" component={Dashboard}/>
+          {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
+          {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;

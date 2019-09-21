@@ -1,11 +1,12 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 
 const UserLogin = () => {
   return (
-    <>
+    <Container>
       <Form>
       <Form.Group controlId="formBasicEmail">
       <Form.Label>Email address</Form.Label>
@@ -26,7 +27,7 @@ const UserLogin = () => {
       Submit
       </Button>
       </Form>
-    </>
+    </Container>
   );
 };
 
