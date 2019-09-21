@@ -6,6 +6,7 @@ import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';
 // import Cashier from './components/Cashier';
 import Dashboard from './components/Dashboard';
+import MyMiniHacks from './components/MyMiniHacks.jsx'
 // import SubmissionPortal from './components/SubmissionPortal';
 // import PrizePayout from './components/PrizePayout';
 import Row from 'react-bootstrap/Row';
@@ -16,10 +17,12 @@ class App extends React.Component {
     super()
     this.state = {
       tournaments: [],
-      clickedTournament: []
+      clickedTournament: [],
+      registeredTournaments: []
     }
 
-    this.handleMiniHackClick = this.handleMiniHackClick.bind(this)
+    this.handleMiniHackClick = this.handleMiniHackClick.bind(this);
+    this.handleRegisterClick = this.handleRegisterClick.bind(this);
   }
 
   componentDidMount() {
@@ -36,9 +39,15 @@ class App extends React.Component {
     this.setState({clickedTournament : stateClickedTournament})
   }
 
+  handleRegisterClick(i) {
+    const registered = this.state.registeredTournaments;
+    registered.push(this.state.tournaments[i]);
+    this.setState({registeredTournaments : registered});
+  }
+
   render() {
 
-    const {tournaments, clickedTournament} = this.state
+    const {tournaments, clickedTournament, registeredTournaments} = this.state
 
     return (
       <div className="App">
@@ -61,7 +70,8 @@ class App extends React.Component {
         {/* router */}
         <BrowserRouter>
           <Route exact path="/" component={UserLogin}/>
-          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>
+          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick}/>}/>
+          <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>          
           {/* <Route path="/Cashier" component={Cashier}/> */}
           <Route path="/Dashboard" render={() => <Dashboard clickedTournament={clickedTournament} />}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
