@@ -2,7 +2,6 @@ import React from 'react';
 import logo from './logo.png'
 import tournaments from './data/tournaments.js'
 import { BrowserRouter, Route } from 'react-router-dom';
-import Navibar from './components/Navbar.jsx'
 import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';
 // import Cashier from './components/Cashier';
@@ -11,14 +10,16 @@ import Dashboard from './components/Dashboard';
 // import PrizePayout from './components/PrizePayout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      tournaments: []
+      tournaments: [],
+      clickedTournament: []
     }
+
+    this.handleMiniHackClick = this.handleMiniHackClick.bind(this)
   }
 
   componentDidMount() {
@@ -29,9 +30,15 @@ class App extends React.Component {
     this.setState({tournaments : tournamentsState})
   }
 
+  handleMiniHackClick(tournament) {
+    const stateClickedTournament = this.state.clickedTournament;
+    stateClickedTournament.push(tournament)
+    this.setState({clickedTournament : stateClickedTournament})
+  }
+
   render() {
 
-    const {tournaments} = this.state
+    const {tournaments, clickedTournament} = this.state
 
     return (
       <div className="App">
@@ -54,9 +61,9 @@ class App extends React.Component {
         {/* router */}
         <BrowserRouter>
           <Route exact path="/" component={UserLogin}/>
-          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} />}/>
+          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>
           {/* <Route path="/Cashier" component={Cashier}/> */}
-          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} />}/>
+          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} clickedTournament={clickedTournament} />}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>

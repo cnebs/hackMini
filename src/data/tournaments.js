@@ -1,8 +1,9 @@
 const tournaments = [
   {
-    name: 'wwc_hackathon',
+    name: 'WWC Diversity Hackathon 5',
     prize: 1000,
     start_time: 'Sun, Sep 22 @ 8:00PM',
+    max_competitors: 30,
     competitors: [
       'name1',
       'name2',
@@ -23,9 +24,10 @@ const tournaments = [
     }
   },
   {
-    name: 'hackathon_2',
+    name: 'hackathon 2',
     prize: 1000,
     start_time: 'Sun, Sep 22 @ 8:00PM',
+    max_competitors: 10,
     competitors: [
       'name1',
       'name2',
@@ -42,9 +44,10 @@ const tournaments = [
     }
   },
   {
-    name: 'hackathon_3',
+    name: 'hackathon 3',
     prize: 1000,
     start_time: 'Sun, Sep 22 @ 8:00PM',
+    max_competitors: 100,
     competitors: [
       'name1',
       'name2'

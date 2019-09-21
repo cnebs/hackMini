@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 const Lobby = props => {
 
-  const {tournaments} = props;
+  const {tournaments, handleMiniHackClick} = props;
 
   return (
     <Container>
@@ -28,8 +28,8 @@ const Lobby = props => {
           {tournaments.map( (tourney, i) => {
             return (
               <tr key={i}>
-                <td>{tourney.competitors.length}/5</td>
-                <td><Link to="/Dashboard">{tourney.name}</Link></td>
+                <td>{tourney.competitors.length}/{tourney.max_competitors}</td>
+                <td><Link to="/Dashboard" onClick={() => (handleMiniHackClick(tourney))}>{tourney.name}</Link></td>
                 <td>${tourney.prize}</td>
                 <td>{tourney.start_time}</td>
                 <td>24 hours</td>

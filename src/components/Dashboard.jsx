@@ -1,40 +1,41 @@
 import React from 'react';
-import DashboardLeaderboard from './Dashboard-Leaderboard';
 import Navibar from './Navbar.jsx'
-import Table from 'react-bootstrap/Table';
-import Row from 'react-bootstrap/Row';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 const Dashboard = props => {
 
-  const {tournaments} = props;
+  const {tournaments, clickedTournament} = props;
 
   return (
-    /*
-    [___Overall Time Remaining:___|___Next Milestone: FrontEnd___]
-    [____________22:21:31_________|__________02:21:21____________]
-      < Dashboard-Leaderboard />    <Dashboard-CompetitorInfo />
-    */
    <Container>
     <Navibar />
-    <Row>
-      <Table>
-        <thead>
-          <tr>
-            <th>Time Remaining:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>22:21:31</td>
-          </tr>
-        </tbody>
-      </Table>
-    </Row>
-    <Row>
-      <DashboardLeaderboard tournaments={tournaments}/>
-    </Row>
-    </Container>
+    <Jumbotron>
+      <h1>
+        {clickedTournament.length ? clickedTournament[0].name : <></>}
+      </h1>
+      <p>
+        {clickedTournament.length ? clickedTournament[0].information.description : <></>}
+      </p>
+      <h3>
+        Requirements:
+      </h3>
+      <p>
+        {clickedTournament.length ? clickedTournament[0].information.requirements.map( (r, i) => (<li key={i}>{r}</li>)) : <></>}
+      </p>
+      <h3>
+        When:
+      </h3>
+      <p>
+        {clickedTournament.length ? clickedTournament[0].start_time : <></>}
+      </p>
+      <br></br>
+      <Button>
+        REGISTER
+      </Button>
+    </Jumbotron>
+  </Container>
   )
 
 }
