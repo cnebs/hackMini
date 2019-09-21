@@ -54,7 +54,7 @@ const UserLogin = () => {
         </fieldset>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
-            <Link to={userType + "Lobby"}>
+            <Link to="Lobby">
               <Button type="submit">Sign in</Button>
             </Link>
           </Col>
