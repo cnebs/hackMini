@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 
 const Dashboard = props => {
 
-  // const {} = props;
+  const {tournaments} = props;
 
   return (
     /*
@@ -19,20 +19,18 @@ const Dashboard = props => {
       <Table>
         <thead>
           <tr>
-            <th>Overall Time Remaining:</th>
-            <th>Next Submission: Front-End</th>
+            <th>Time Remaining:</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>22:21:31</td>
-            <td>02:21:21</td>
           </tr>
         </tbody>
       </Table>
     </Row>
     <Row>
-      <DashboardLeaderboard />
+      <DashboardLeaderboard tournaments={tournaments}/>
     </Row>
     </Container>
   )

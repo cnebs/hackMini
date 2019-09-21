@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 
 const DashboardLeaderboard = props => {
 
-  // const {} = props;
+  const {tournaments} = props;
 
   return (
     <Table striped bordered>
@@ -14,18 +14,20 @@ const DashboardLeaderboard = props => {
         </tr>
       </thead>
       <tbody>
+        { tournaments.length ?
+          tournaments[0].competitors.map( (user, i) => {
+          return (
+            <tr key={i}>
+              <td>{i+1}</td>
+              <td>{user}</td>
+            </tr>
+          )
+        }) :
         <tr>
           <td>1</td>
-          <td>User2</td>
+          <td>user1</td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>User3</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>User1</td>
-        </tr>
+        }
       </tbody>
     </Table>
   )

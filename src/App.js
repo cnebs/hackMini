@@ -1,4 +1,5 @@
 import React from 'react';
+import tournaments from './data/tournaments.js'
 import { BrowserRouter, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';
@@ -11,20 +12,32 @@ class App extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      
+      tournaments: []
     }
   }
 
+  componentDidMount() {
+    const tournamentsState = this.state.tournaments;
+    for (let i of tournaments) {
+      tournamentsState.push(i)
+    }
+    this.setState({tournaments : tournamentsState})
+  }
+
   render() {
+
+    const {tournaments} = this.state
+
     return (
       <div className="App">
-        <h1>MiniHacks</h1>
+        <br></br>
+        <h1 style={{textAlign: "center"}} >MiniHacks</h1>
         <br></br>
         <BrowserRouter>
           <Route exact path="/" component={UserLogin}/>
-          <Route path="/Lobby" component={Lobby}/>
+          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} />}/>
           {/* <Route path="/Cashier" component={Cashier}/> */}
-          <Route path="/Dashboard" component={Dashboard}/>
+          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} />}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>
