@@ -16,7 +16,7 @@ const Navibar = props => {
       </Nav>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-          {`Signed in as: ${props.user}`}
+          {`Welcome, ${props.user}`}
         </Navbar.Text>
         <Form inline>
           <Button className="SignOut" variant="outline-light" href="/" style={{paddingLeft : "5"}}>Sign Out</Button>

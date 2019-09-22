@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 
 const UserLogin = props => {
@@ -12,58 +13,71 @@ const UserLogin = props => {
   const {handleEmailChange, handlePasswordChange, emailText, passwordText, handleBadLogin, handleLogin} = props
   return (
     <Container>
-      <Form>
-        <Form.Group as={Row} controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control onChange={handleEmailChange} type="email" placeholder="Email" />
-          </Col>
-        </Form.Group>
-      
-        <Form.Group as={Row} controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
-          </Col>
-        </Form.Group>
-        <fieldset>
-          <Form.Group as={Row}>
-            <Form.Label as="legend" column sm={2}>
-              I am a:
+      <Row>
+        <Col></Col>
+        <Col md="6">
+      <Card>
+        <Card.Header>
+          MiniHacks Login
+        </Card.Header>
+        <Card.Body>
+        <Form>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email
             </Form.Label>
             <Col sm={10}>
-              <Form.Check
-                type="radio"
-                label="Competitor"
-                onClick={() => setUserType("Competitor")}
-                name="Competitor"
-                id="Competitor"
-              />
-              <Form.Check
-                type="radio"
-                label="Judge"
-                onClick={() => setUserType("Judge")}
-                name="Judge"
-                id="Judge"
-              />
+              <Form.Control onChange={handleEmailChange} type="email" placeholder="Email" />
             </Col>
           </Form.Group>
-        </fieldset>
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-          {emailText.length && passwordText.length ? 
-            <Link to="Lobby">
-              <Button onClick={handleLogin} type="submit">Enter</Button>
-            </Link> :
-            <Button onClick={handleBadLogin} type="Submit">Enter</Button>
-          }
-          </Col>
-        </Form.Group>
-      </Form>
+        
+          <Form.Group as={Row} controlId="formHorizontalPassword">
+            <Form.Label column sm={2}>
+              Password
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
+            </Col>
+          </Form.Group>
+          <fieldset>
+            <Form.Group as={Row}>
+              <Form.Label as="legend" column sm={2}>
+                I am a:
+              </Form.Label>
+              <Col sm={10}>
+                <Form.Check
+                  type="radio"
+                  label="Competitor"
+                  onClick={() => setUserType("Competitor")}
+                  name="Competitor"
+                  id="Competitor"
+                />
+                <Form.Check
+                  type="radio"
+                  label="Judge"
+                  onClick={() => setUserType("Judge")}
+                  name="Judge"
+                  id="Judge"
+                />
+              </Col>
+            </Form.Group>
+          </fieldset>
+          <Form.Group as={Row}>
+            <Col sm={{ span: 10, offset: 2 }}>
+            {emailText.length && passwordText.length ? 
+              <Link to="Lobby">
+                <Button onClick={handleLogin} type="submit">Enter</Button>
+              </Link> :
+              <Button onClick={handleBadLogin} type="Submit">Enter</Button>
+            }
+            </Col>
+          </Form.Group>
+        </Form>
+        </Card.Body>
+      </Card>
+      </Col>
+      <Col></Col>
+      </Row>
     </Container>
   );
 };
