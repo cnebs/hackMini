@@ -6,12 +6,13 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import {Link} from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const CreateAMiniApp = props => {
 
-  const {handleCreateTournament, handleTournamentNameChange, handleTournamentDescriptionChange, handleTournamentRequirementsChange, handleTournamentPrizeChange, handleTournamentMaxChange, requirementsCounter, handleAddRequirement, user, type} = props;
+  const {handleCreateTournament, handleTournamentNameChange, handleTournamentDescriptionChange, handleTournamentStartChange, handleTournamentRequirementsChange, handleTournamentPrizeChange, handleTournamentMaxChange, requirementsCounter, handleAddRequirement, user, type} = props;
 
   return (
     <Container>
@@ -40,6 +41,18 @@ const CreateAMiniApp = props => {
               <FormControl onChange={handleTournamentDescriptionChange} as="textarea" aria-label="With textarea" />
             </InputGroup>
             <p></p><br></br>
+
+            <InputGroup className="mb-4">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon1">Start Date & Time</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                onChange={handleTournamentStartChange}
+                placeholder="Sun, Sep 22 @ 8:00AM"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
 
             <label htmlFor="basic-url">Requirements</label>
 
@@ -94,7 +107,10 @@ const CreateAMiniApp = props => {
             </Row>
 
             <br></br>
-            <Button onClick={handleCreateTournament} size="lg">Create MiniHack</Button>
+
+            <Link to="/Lobby">
+              <Button onClick={handleCreateTournament} size="lg">Create MiniHack</Button>
+            </Link>
 
           </Form>
         </Card.Body>

@@ -27,6 +27,7 @@ class App extends React.Component {
       newTournamentName: '',
       newTournamentDesription: '',
       newTournamentRequirements: [],
+      newTournamentStart: '',
       newTournamentPrize: 0,
       newTournamentMax: 0,
       createdTournament: {information: {}, competitors: ['a', 'b', 'c']}
@@ -46,7 +47,7 @@ class App extends React.Component {
     this.handleTournamentRequirementsChange = this.handleTournamentRequirementsChange.bind(this);
     this.handleTournamentPrizeChange = this.handleTournamentPrizeChange.bind(this);
     this.handleTournamentMaxChange = this.handleTournamentMaxChange.bind(this);
-    
+    this.handleTournamentStartChange = this.handleTournamentStartChange.bind(this);
 
   }
 
@@ -108,6 +109,10 @@ class App extends React.Component {
     this.setState({newTournamentDesription: e.target.value});
   }
 
+  handleTournamentStartChange(e) {
+    this.setState({newTournamentStart: e.target.value});
+  }
+
   handleTournamentRequirementsChange(e) {
     const requirements = this.state.newTournamentRequirements;
     requirements.push(e.target.value);
@@ -127,7 +132,7 @@ class App extends React.Component {
     const newTournament = this.state.createdTournament;
     newTournament.name = this.state.newTournamentName;
     newTournament.prize = this.state.newTournamentPrize;
-    newTournament.start_time = 'placeholder';
+    newTournament.start_time = this.state.newTournamentStart;
     newTournament.max_competitors = this.state.newTournamentMax;
     newTournament.information.description = this.state.newTournamentDescription;
     newTournament.information.media = '';
@@ -187,7 +192,7 @@ class App extends React.Component {
           <Route exact path="/" render={() => <UserLogin handleEmailChange={this.handleEmailChange} handlePasswordChange={this.handlePasswordChange} emailText={emailText} passwordText={passwordText} handleBadLogin={this.handleBadLogin} handleLogin={this.handleLogin} handleUserType={this.handleUserType}/>}/>
           <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick} user={user} type={type}/>}/>
           <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} user={user} type={type}/>}/>          
-          <Route path="/Create" render={() => <CreateAMiniApp handleCreateTournament={this.handleCreateTournament} handleTournamentRequirementsChange={this.handleTournamentRequirementsChange} handleTournamentPrizeChange={this.handleTournamentPrizeChange} handleTournamentMaxChange={this.handleTournamentMaxChange} handleTournamentDescriptionChange={this.handleTournamentDescriptionChange} handleTournamentNameChange={this.handleTournamentNameChange} user={user} type={type} requirementsCounter={requirementsCounter} handleAddRequirement={this.handleAddRequirement} />} />
+          <Route path="/Create" render={() => <CreateAMiniApp handleCreateTournament={this.handleCreateTournament} handleTournamentRequirementsChange={this.handleTournamentRequirementsChange} handleTournamentPrizeChange={this.handleTournamentPrizeChange} handleTournamentMaxChange={this.handleTournamentMaxChange} handleTournamentStartChange={this.handleTournamentStartChange} handleTournamentDescriptionChange={this.handleTournamentDescriptionChange} handleTournamentNameChange={this.handleTournamentNameChange} user={user} type={type} requirementsCounter={requirementsCounter} handleAddRequirement={this.handleAddRequirement} />} />
           <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} clickedTournament={clickedTournament} registeredTournaments={registeredTournaments} handleRegisterClick={this.handleRegisterClick} user={user} type={type}/>}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
