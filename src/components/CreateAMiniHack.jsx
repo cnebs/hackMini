@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 
 const CreateAMiniApp = props => {
 
-  const {requirementsCounter, handleAddRequirement, user, type} = props;
+  const {handleCreateTournament, handleTournamentNameChange, handleTournamentDescriptionChange, handleTournamentRequirementsChange, handleTournamentPrizeChange, handleTournamentMaxChange, requirementsCounter, handleAddRequirement, user, type} = props;
 
   return (
     <Container>
@@ -19,85 +19,86 @@ const CreateAMiniApp = props => {
       <Card>
         {/* <Card.Header>Create a MiniHack</Card.Header> */}
         <Card.Body>
-    <Form>
-      <br></br>
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="basic-addon1">Hackathon Title</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl
-      placeholder="Username"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-    />
-  </InputGroup>
-  
-  <InputGroup>
-    <InputGroup.Prepend>
-      <InputGroup.Text>Description</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl as="textarea" aria-label="With textarea" />
-  </InputGroup>
-  <p></p><br></br>
+          <Form>
+            <br></br>
+            <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon1">Hackathon Title</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                onChange={handleTournamentNameChange}
+                placeholder="Title Hackathon"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
+        
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text>Description</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl onChange={handleTournamentDescriptionChange} as="textarea" aria-label="With textarea" />
+            </InputGroup>
+            <p></p><br></br>
 
-  <label htmlFor="basic-url">Requirements</label>
+            <label htmlFor="basic-url">Requirements</label>
 
-  <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="basic-addon3">
-        Requirement 1
-      </InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl id="basic-url" aria-describedby="basic-addon3" />
-  </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon3">
+                  Requirement 1
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl onChange={handleTournamentRequirementsChange} id="basic-url" aria-describedby="basic-addon3" />
+            </InputGroup>
 
-  {requirementsCounter.map( (n, i) => (
-    <InputGroup key={i} className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="basic-addon3">
-        Requirement {n+1}
-      </InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl id="basic-url" aria-describedby="basic-addon3" />
-  </InputGroup>
-  ))}
-  
-  <Button variant="outline-primary" onClick={handleAddRequirement}>Add Another Requirement</Button>
+            {requirementsCounter.map( (n, i) => (
+              <InputGroup key={i} className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon3">
+                  Requirement {n+1}
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl id="basic-url" aria-describedby="basic-addon3" />
+            </InputGroup>
+            ))}
+            
+            <Button variant="outline-primary" onClick={handleAddRequirement}>Add Another Requirement</Button>
 
-  <p></p><br></br>
+            <p></p><br></br>
 
-  <Row>
-    <Col>
-      <label htmlFor="basic-url">Prize</label>
+            <Row>
+              <Col>
+                <label htmlFor="basic-url">Prize</label>
 
-      <InputGroup className="mb-3">
-        <InputGroup.Prepend>
-          <InputGroup.Text>$</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl aria-label="Amount (to the nearest dollar)" />
-        <InputGroup.Append>
-          <InputGroup.Text>.00</InputGroup.Text>
-        </InputGroup.Append>
-      </InputGroup>
-    </Col>
-    <Col>
-      <label htmlFor="basic-url">Max Hackers</label>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>$</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl onChange={handleTournamentPrizeChange} aria-label="Amount (to the nearest dollar)" />
+                  <InputGroup.Append>
+                    <InputGroup.Text>.00</InputGroup.Text>
+                  </InputGroup.Append>
+                </InputGroup>
+              </Col>
+              <Col>
+                <label htmlFor="basic-url">Max Hackers</label>
 
-      <InputGroup className="mb-3">
-        <InputGroup.Prepend>
-          <InputGroup.Text>#</InputGroup.Text>
-        </InputGroup.Prepend>
-        <FormControl aria-label="Amount (to the nearest dollar)" />
-      </InputGroup>
-    </Col>
-  </Row>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>#</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl onChange={handleTournamentMaxChange} aria-label="Amount (to the nearest dollar)" />
+                </InputGroup>
+              </Col>
+            </Row>
 
-  <br></br>
-  <Button size="lg" type="submit">Create MiniHack</Button>
+            <br></br>
+            <Button onClick={handleCreateTournament} size="lg">Create MiniHack</Button>
 
-</Form>
-</Card.Body>
-</Card>
+          </Form>
+        </Card.Body>
+      </Card>
     </Container>
   )
 
