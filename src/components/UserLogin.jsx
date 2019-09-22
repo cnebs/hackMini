@@ -7,8 +7,9 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 
 
-const UserLogin = () => {
+const UserLogin = props => {
   const [userType, setUserType] = useState('');
+  const {handleEmailChange, handlePasswordChange, emailText, passwordText, handleBadLogin, handleLogin} = props
   return (
     <Container>
       <Form>
@@ -17,7 +18,7 @@ const UserLogin = () => {
             Email
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="email" placeholder="Email" />
+            <Form.Control onChange={handleEmailChange} type="email" placeholder="Email" />
           </Col>
         </Form.Group>
       
@@ -26,7 +27,7 @@ const UserLogin = () => {
             Password
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
           </Col>
         </Form.Group>
         <fieldset>
@@ -54,9 +55,12 @@ const UserLogin = () => {
         </fieldset>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
+          {emailText.length && passwordText.length ? 
             <Link to="Lobby">
-              <Button type="submit">Sign in</Button>
-            </Link>
+              <Button onClick={handleLogin} type="submit">Sign in</Button>
+            </Link> :
+            <Button onClick={handleBadLogin} type="Submit">Sign In</Button>
+          }
           </Col>
         </Form.Group>
       </Form>

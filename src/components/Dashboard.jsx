@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 const Dashboard = props => {
 
-  const {tournaments, clickedTournament, registeredTournaments, handleRegisterClick} = props;
+  const {tournaments, clickedTournament, registeredTournaments, handleRegisterClick, user} = props;
 
   const [modalShow, setModalShow] = React.useState(false);
 
@@ -15,7 +15,7 @@ const Dashboard = props => {
 
   return (
    <Container>
-    <Navibar />
+    <Navibar user={user}/>
     <Jumbotron>
       <h1>
         {clickedTournament.length ? clickedTournament[0].name : <></>}
