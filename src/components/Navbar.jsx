@@ -16,7 +16,7 @@ const Navibar = props => {
         <Nav.Link as="span"><Link style={{color: "white"}} to="/Lobby">Lobby</Link></Nav.Link>
         <Nav.Link as="span"><Link style={{color: "white"}} to="/MyMiniHacks">My MiniHacks</Link></Nav.Link>
         {type ? 
-          <Nav.Link as="span"><Link style={{color: "white"}} to="/CreateMiniHack">Create a MiniHack</Link></Nav.Link> :
+          <Nav.Link as="span"><Link style={{color: "white"}} to="/Create">Create a MiniHack</Link></Nav.Link> :
           <></>
         }
       </Nav>
