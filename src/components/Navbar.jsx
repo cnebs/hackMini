@@ -1,6 +1,9 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import '../index.css';
 import {Link} from 'react-router-dom';
 
 const Navibar = props => {
@@ -13,9 +16,12 @@ const Navibar = props => {
       </Nav>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-          Signed in as: <a href="#login">{props.user}</a>
+          {`Signed in as: ${props.user}`}
         </Navbar.Text>
-  </Navbar.Collapse>
+        <Form inline>
+          <Button className="SignOut" variant="outline-light" href="/" style={{paddingLeft : "5"}}>Sign Out</Button>
+        </Form>
+      </Navbar.Collapse>
     </Navbar>
   )
 }
