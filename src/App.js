@@ -57,7 +57,7 @@ class App extends React.Component {
           <Col md="auto">
             <br></br>
             <a href="/Lobby">
-            <img style={{textAlign: "center"}} src={logo} href="Lobby" alt="logo" />
+              <img style={{textAlign: "center"}} src={logo} href="Lobby" alt="logo" />
             </a>
             <br></br>
           </Col>
@@ -72,7 +72,7 @@ class App extends React.Component {
           <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick}/>}/>
           <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>          
           {/* <Route path="/Cashier" component={Cashier}/> */}
-          <Route path="/Dashboard" render={() => <Dashboard clickedTournament={clickedTournament} registeredTournaments={registeredTournaments}/>}/>
+          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} clickedTournament={clickedTournament} registeredTournaments={registeredTournaments} handleRegisterClick={this.handleRegisterClick}/>}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>

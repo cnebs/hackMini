@@ -7,9 +7,11 @@ import Button from 'react-bootstrap/Button';
 
 const Dashboard = props => {
 
-  const {clickedTournament, registeredTournaments} = props;
+  const {tournaments, clickedTournament, registeredTournaments, handleRegisterClick} = props;
 
   const [modalShow, setModalShow] = React.useState(false);
+
+  const tournamentIndex = tournaments.indexOf(clickedTournament[0])
 
   return (
    <Container>
@@ -38,7 +40,7 @@ const Dashboard = props => {
           <Button variant="primary" onClick={() => setModalShow(true)}>
             Submit Final Project
           </Button> :
-          <Button>
+          <Button onClick={() => (handleRegisterClick(tournamentIndex))}>
             REGISTER
           </Button>
         }
