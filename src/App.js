@@ -4,10 +4,8 @@ import tournaments from './data/tournaments.js'
 import { BrowserRouter, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Lobby from './components/Lobby';
-// import Cashier from './components/Cashier';
 import Dashboard from './components/Dashboard';
-import MyMiniHacks from './components/MyMiniHacks.jsx';
-// import PrizePayout from './components/PrizePayout';
+import MyMiniHacks from './components/MyMiniHacks.jsx'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CreateAMiniApp from './components/CreateAMiniHack';
@@ -25,12 +23,12 @@ class App extends React.Component {
       registeredTournaments: [],
       requirementsCounter: [],
       newTournamentName: '',
-      newTournamentDesription: '',
-      newTournamentRequirements: [],
+      newTournamentDescription: '',
+      newTournamentRequirements: '',
       newTournamentStart: '',
       newTournamentPrize: 0,
       newTournamentMax: 0,
-      createdTournament: {information: {}, competitors: ['a', 'b', 'c']}
+      createdTournament: {information: {}, competitors: []}
     }
 
     this.handleMiniHackClick = this.handleMiniHackClick.bind(this);
@@ -106,7 +104,7 @@ class App extends React.Component {
   }
 
   handleTournamentDescriptionChange(e) {
-    this.setState({newTournamentDesription: e.target.value});
+    this.setState({newTournamentDescription: e.target.value});
   }
 
   handleTournamentStartChange(e) {
@@ -114,8 +112,7 @@ class App extends React.Component {
   }
 
   handleTournamentRequirementsChange(e) {
-    const requirements = this.state.newTournamentRequirements;
-    requirements.push(e.target.value);
+    const requirements = e.target.value
     this.setState({newTournamentRequirements: requirements});
   }
 
@@ -136,7 +133,7 @@ class App extends React.Component {
     newTournament.max_competitors = this.state.newTournamentMax;
     newTournament.information.description = this.state.newTournamentDescription;
     newTournament.information.media = '';
-    newTournament.information.requirements = this.state.newTournamentRequirements;
+    newTournament.information.requirements = [this.state.newTournamentRequirements];
     tournaments.push(newTournament);
     this.setState({tournaments : tournaments});
  }
