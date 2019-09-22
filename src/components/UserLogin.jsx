@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -9,11 +9,10 @@ import Card from 'react-bootstrap/Card';
 
 
 const UserLogin = props => {
-  const [userType, setUserType] = useState('');
-  const {handleEmailChange, handlePasswordChange, emailText, passwordText, handleBadLogin, handleLogin} = props
+  const {handleEmailChange, handlePasswordChange, emailText, passwordText, handleBadLogin, handleLogin, handleUserType} = props
   return (
     <Container>
-      <Row>
+      <Row style={{paddingTop:50}}>
         <Col></Col>
         <Col md="6">
       <Card>
@@ -27,7 +26,7 @@ const UserLogin = props => {
               Email
             </Form.Label>
             <Col sm={10}>
-              <Form.Control onChange={handleEmailChange} type="email" placeholder="Email" />
+              <Form.Control onChange={handleEmailChange} type="email" placeholder="Email" autoComplete="username email"/>
             </Col>
           </Form.Group>
         
@@ -36,16 +35,16 @@ const UserLogin = props => {
               Password
             </Form.Label>
             <Col sm={10}>
-              <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
+              <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" autoComplete="new-password"/>
             </Col>
           </Form.Group>
           <fieldset>
 
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>I am a:</Form.Label>
-            <Form.Control as="select">
-              <option onClick={() => setUserType("Competitor")}>Hacker</option>
-              <option onClick={() => setUserType("Judge")}>Judge</option>
+            <Form.Control as="select" onChange={handleUserType}>
+              <option >Hacker</option>
+              <option >Judge</option>
             </Form.Control>
           </Form.Group>
 

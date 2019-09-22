@@ -7,16 +7,22 @@ import '../index.css';
 import {Link} from 'react-router-dom';
 
 const Navibar = props => {
+
+  const {user, type} = props;
+
   return (
     <Navbar bg="primary" variant="dark">
       <Nav className="mr-auto">
         <Nav.Link as="span"><Link style={{color: "white"}} to="/Lobby">Lobby</Link></Nav.Link>
         <Nav.Link as="span"><Link style={{color: "white"}} to="/MyMiniHacks">My MiniHacks</Link></Nav.Link>
-        <Nav.Link as="span"><Link style={{color: "white"}} to="/CreateMiniHack">Create a MiniHack</Link></Nav.Link>
+        {type ? 
+          <Nav.Link as="span"><Link style={{color: "white"}} to="/CreateMiniHack">Create a MiniHack</Link></Nav.Link> :
+          <></>
+        }
       </Nav>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-          {`Welcome, ${props.user}`}
+          {`Welcome, ${user}`}
         </Navbar.Text>
         <Form inline>
           <Button className="SignOut" variant="outline-light" href="/" style={{paddingLeft : "5"}}>Sign Out</Button>

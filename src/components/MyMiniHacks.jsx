@@ -6,11 +6,11 @@ import {Link} from 'react-router-dom'
 
 const MyMiniHacks = props => {
 
-  const {registeredTournaments, handleMiniHackClick, user} = props;
+  const {registeredTournaments, handleMiniHackClick, user, type} = props;
 
   return (
     <Container>
-    <Navibar user={user}/>
+    <Navibar user={user} type={type}/>
 
       <Table striped boredered="true" responsive hover variant="dark">
         <thead>
