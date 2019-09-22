@@ -7,12 +7,12 @@ import {Link} from 'react-router-dom'
 
 const Lobby = props => {
 
-  const {tournaments, registeredTournaments, handleMiniHackClick, handleRegisterClick} = props;
+  const {tournaments, registeredTournaments, handleMiniHackClick, handleRegisterClick, user} = props;
 
 
   return (
     <Container>
-    <Navibar />
+    <Navibar user={user}/>
 
       <Table striped boredered="true" responsive hover variant="dark">
         <thead>

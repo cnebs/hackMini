@@ -9,7 +9,7 @@ const host = '0.0.0.0';
 
 app.use(cors());
 app.use(compression());
-app.use('/', express.static('./public'));
+app.use('/', express.static('./build'));
 
 app.listen(port, host, () => 
   { console.log(`

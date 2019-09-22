@@ -15,6 +15,9 @@ class App extends React.Component {
   constructor(props) {
     super()
     this.state = {
+      emailText: '',
+      passwordText: '',
+      user: '',
       tournaments: [],
       clickedTournament: [],
       registeredTournaments: []
@@ -22,20 +25,43 @@ class App extends React.Component {
 
     this.handleMiniHackClick = this.handleMiniHackClick.bind(this);
     this.handleRegisterClick = this.handleRegisterClick.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleBadLogin = this.handleBadLogin.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentDidMount() {
     const tournamentsState = this.state.tournaments;
     for (let tourney of tournaments) {
-      tournamentsState.push(tourney)
+      tournamentsState.push(tourney);
     }
-    this.setState({tournaments : tournamentsState})
+    this.setState({tournaments : tournamentsState});
+  }
+
+  handleEmailChange(e) {
+    this.setState({emailText: e.target.value});
+  
+  }
+
+  handlePasswordChange(e) {
+    this.setState({passwordText: e.target.value});
+  }
+
+  handleBadLogin() {
+    alert(`Please enter both a username and password`);
+  }
+
+  handleLogin() {
+    const email = this.state.emailText;
+    const parsedEmail = email.split('@')[0];
+    this.setState({user : parsedEmail});
   }
 
   handleMiniHackClick(tournament) {
     const stateClickedTournament = this.state.clickedTournament;
-    stateClickedTournament[0] = tournament
-    this.setState({clickedTournament : stateClickedTournament})
+    stateClickedTournament[0] = tournament;
+    this.setState({clickedTournament : stateClickedTournament});
   }
 
   handleRegisterClick(i) {
@@ -46,7 +72,7 @@ class App extends React.Component {
 
   render() {
 
-    const {tournaments, clickedTournament, registeredTournaments} = this.state
+    const {tournaments, clickedTournament, registeredTournaments, emailText, passwordText, user} = this.state
 
     return (
       <div className="App">
@@ -68,11 +94,11 @@ class App extends React.Component {
 
         {/* router */}
         <BrowserRouter>
-          <Route exact path="/" component={UserLogin}/>
-          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick}/>}/>
-          <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} />}/>          
+          <Route exact path="/" render={() => <UserLogin handleEmailChange={this.handleEmailChange} handlePasswordChange={this.handlePasswordChange} emailText={emailText} passwordText={passwordText} handleBadLogin={this.handleBadLogin} handleLogin={this.handleLogin}/>}/>
+          <Route path="/Lobby" render={() => <Lobby tournaments={tournaments} registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} handleRegisterClick={this.handleRegisterClick} user={user}/>}/>
+          <Route path="/MyMiniHacks" render={() => <MyMiniHacks registeredTournaments={registeredTournaments} handleMiniHackClick={this.handleMiniHackClick} user={user}/>}/>          
           {/* <Route path="/Cashier" component={Cashier}/> */}
-          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} clickedTournament={clickedTournament} registeredTournaments={registeredTournaments} handleRegisterClick={this.handleRegisterClick}/>}/>
+          <Route path="/Dashboard" render={() => <Dashboard tournaments={tournaments} clickedTournament={clickedTournament} registeredTournaments={registeredTournaments} handleRegisterClick={this.handleRegisterClick} user={user}/>}/>
           {/* <Route path="/SubmissionPortal" component={SubmissionPortal}/> */}
           {/* <Route path="/PrizePayout" component={PrizePayout}/> */}
         </BrowserRouter>
