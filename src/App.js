@@ -82,9 +82,7 @@ class App extends React.Component {
           <Col></Col>
           <Col md="auto">
             <br></br>
-            <a href="/Lobby">
-              <img style={{textAlign: "center"}} src={logo} href="Lobby" alt="logo" />
-            </a>
+            <img style={{textAlign: "center"}} src={logo} href="Lobby" alt="logo" />
             <br></br>
           </Col>
           <Col></Col>
