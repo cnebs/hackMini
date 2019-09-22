@@ -57,9 +57,9 @@ const UserLogin = props => {
           <Col sm={{ span: 10, offset: 2 }}>
           {emailText.length && passwordText.length ? 
             <Link to="Lobby">
-              <Button onClick={handleLogin} type="submit">Sign in</Button>
+              <Button onClick={handleLogin} type="submit">Enter</Button>
             </Link> :
-            <Button onClick={handleBadLogin} type="Submit">Sign In</Button>
+            <Button onClick={handleBadLogin} type="Submit">Enter</Button>
           }
           </Col>
         </Form.Group>
