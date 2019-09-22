@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 
   handleBadLogin() {
-    alert(`Please enter both a username and password`);
+    alert(`Please enter both a valid email and password`);
   }
 
   handleLogin() {

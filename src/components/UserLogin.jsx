@@ -40,37 +40,24 @@ const UserLogin = props => {
             </Col>
           </Form.Group>
           <fieldset>
-            <Form.Group as={Row}>
-              <Form.Label as="legend" column sm={2}>
-                I am a:
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Check
-                  type="radio"
-                  label="Competitor"
-                  onClick={() => setUserType("Competitor")}
-                  name="Competitor"
-                  id="Competitor"
-                />
-                <Form.Check
-                  type="radio"
-                  label="Judge"
-                  onClick={() => setUserType("Judge")}
-                  name="Judge"
-                  id="Judge"
-                />
-              </Col>
-            </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>I am a:</Form.Label>
+            <Form.Control as="select">
+              <option onClick={() => setUserType("Competitor")}>Hacker</option>
+              <option onClick={() => setUserType("Judge")}>Judge</option>
+            </Form.Control>
+          </Form.Group>
+
+            
           </fieldset>
-          <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
-            {emailText.length && passwordText.length ? 
+          <Form.Group>
+            {emailText.length && passwordText.length && emailText.includes('@') ? 
               <Link to="Lobby">
                 <Button onClick={handleLogin} type="submit">Enter</Button>
               </Link> :
               <Button onClick={handleBadLogin} type="Submit">Enter</Button>
             }
-            </Col>
           </Form.Group>
         </Form>
         </Card.Body>
