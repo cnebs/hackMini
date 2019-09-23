@@ -41,7 +41,7 @@ We use [Git](https://git-scm.com) for versioning.
 ## Authors
 
 * **Charles Neblett** - *Full-stack* - [cnebs](https://github.com/cnebs)
-* **Geoff Langenderfer** - *Front-end* - [geoff_langenderfer](https://github.com/geoff_langenderfer)
+* **Geoff Langenderfer** - *Front-end* - [geoff_langenderfer](https://github.com/geofflangenderfer)
 
 ## License
 
