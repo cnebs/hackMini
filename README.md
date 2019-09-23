@@ -2,6 +2,8 @@
 
 Bringing hackathons online.
 
+[Click here to visit](https://minihacksapp.netlify.com/)
+
 This is a project built for the WomenWhoCode 5th Diversity Hackathon in Austin, Texas.
 
 ![Hackathon Info View](https://i.imgur.com/QXiqHFG.png)
