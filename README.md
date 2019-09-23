@@ -32,7 +32,7 @@ npm run start
 * [Node](https://nodejs.org) - For the backend
 * [Express](https://expressjs.com) - Back-end on Node for server
 * [React](https://reactjs.org) - Front-end framework
-* [React-Bootstrap] (https://react-bootstrap.github.io) - Styling framework on React
+* [React-Bootstrap](https://react-bootstrap.github.io) - Styling framework on React
 
 ## Versioning
 
